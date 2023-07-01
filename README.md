@@ -24,7 +24,7 @@ To use the Pomodoro application locally, follow these steps:
 2. Navigate to the project directory:
 
 ```bash
-    cd pomodoro-app
+    cd pomodoro-clock
 ```
 
 3. Open the index.html file in your preferred web browser.
