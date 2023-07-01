@@ -1,10 +1,8 @@
 # Pomodoro Application
 
-![Design preview for Tic Tac Toe Game](./design/desktop-design.jpg)
-
 This is a Pomodoro application built with HTML, CSS, and JavaScript. The application helps users manage their time using the Pomodoro Technique, a time management method developed by Francesco Cirillo. The technique uses a timer to break work into intervals, traditionally 25 minutes in length, separated by short breaks.
 
-![Pomodoro Application](https://react-tomato-clock.netlify.app/)
+![Design preview for Tic Tac Toe Game](./design/desktop-design.png)
 
 ## Features
 
