@@ -155,76 +155,84 @@ refreshButton.addEventListener('click', () => {
 // Break and Session Controls
 
 breakMinus.addEventListener('click', () => {
-    if(breakValue > 5)
-    {
-        breakValue -= 5;
-        breakLength.innerText = breakValue;
-    }
-    if(breakValue === 5) {
-        breakMinus.classList.add('hide');
-    }
-
-    if(breakValue < sessionValue-5) {
-        breakPlus.classList.remove('hide');
-        if(sessionValue > 15) {
-            sessionMinus.classList.remove('hide');
+    if(!playing) {
+        if(breakValue > 5)
+        {
+            breakValue -= 5;
+            breakLength.innerText = breakValue;
         }
+        if(breakValue === 5) {
+            breakMinus.classList.add('hide');
+        }
+
+        if(breakValue < sessionValue-5) {
+            breakPlus.classList.remove('hide');
+            if(sessionValue > 15) {
+                sessionMinus.classList.remove('hide');
+            }
+        }
+        seconds = 60;
+        refreshTimer();
     }
-    seconds = 60;
-    refreshTimer();
 });
 
 breakPlus.addEventListener('click', () => {
-    if(breakValue < sessionValue-5)
-    {
-        breakValue += 5;
-        breakLength.innerText = breakValue;
-    }
+    if(!playing) {
+        if(breakValue < sessionValue-5)
+        {
+            breakValue += 5;
+            breakLength.innerText = breakValue;
+        }
 
-    if(breakValue === sessionValue-5) {
-        breakPlus.classList.add('hide');
-        sessionMinus.classList.add('hide');
-    }
+        if(breakValue === sessionValue-5) {
+            breakPlus.classList.add('hide');
+            sessionMinus.classList.add('hide');
+        }
 
-    if(breakMinus.classList.contains('hide')) {
-        breakMinus.classList.remove('hide');
+        if(breakMinus.classList.contains('hide')) {
+            breakMinus.classList.remove('hide');
+        }
+        seconds = 60;
+        refreshTimer();
     }
-    seconds = 60;
-    refreshTimer();
 });
 
 sessionMinus.addEventListener('click', () => {
-    if(breakValue < sessionValue && sessionValue > 15)
-    {
-        sessionValue -= 5;
-        sessionLength.innerText = sessionValue;
-    }
+    if(!playing) {
+        if(breakValue < sessionValue && sessionValue > 15)
+        {
+            sessionValue -= 5;
+            sessionLength.innerText = sessionValue;
+        }
 
-    if(breakValue === sessionValue-5) {
-        breakPlus.classList.add('hide');
-        sessionMinus.classList.add('hide');
-    }
+        if(breakValue === sessionValue-5) {
+            breakPlus.classList.add('hide');
+            sessionMinus.classList.add('hide');
+        }
 
-    if(sessionValue === 15) {
-        sessionMinus.classList.add('hide');
+        if(sessionValue === 15) {
+            sessionMinus.classList.add('hide');
+        }
+        seconds = 60;
+        refreshTimer();
     }
-    seconds = 60;
-    refreshTimer();
 });
 
 sessionPlus.addEventListener('click', () => {
-    if(breakValue < sessionValue)
-    {
-        sessionValue += 5;
-        sessionLength.innerText = sessionValue;
+    if(!playing) {
+        if(breakValue < sessionValue)
+        {
+            sessionValue += 5;
+            sessionLength.innerText = sessionValue;
+        }
+        
+        if(breakValue < sessionValue-5) {
+            breakPlus.classList.remove('hide');
+            sessionMinus.classList.remove('hide');
+        }
+        seconds = 60;
+        refreshTimer();
     }
-    
-    if(breakValue < sessionValue-5) {
-        breakPlus.classList.remove('hide');
-        sessionMinus.classList.remove('hide');
-    }
-    seconds = 60;
-    refreshTimer();
 });
 
 init();
