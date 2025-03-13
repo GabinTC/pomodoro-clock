@@ -2,7 +2,7 @@ name: Docker Image Videogames
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 jobs:
   push_to_registry:
@@ -34,4 +34,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: gabintc/clock:latest
+          tags: gabintc/pom:latest
